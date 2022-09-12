@@ -1,0 +1,1 @@
+{"name":"Local: vector_vector","url":"d:\\CP\\STL\\VECTOR_PAIR\\vector_vector.cpp","tests":[{"id":1653216647298,"input":"2\n3\n1\n2\n3\n2\n5\n6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\STL\\VECTOR_PAIR\\vector_vector.cpp","group":"local","local":true}
