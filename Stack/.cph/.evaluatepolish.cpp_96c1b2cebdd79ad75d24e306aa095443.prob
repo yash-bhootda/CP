@@ -1,0 +1,1 @@
+{"name":"Local: evaluatepolish","url":"d:\\CP\\Stack\\evaluatepolish.cpp","tests":[{"id":1663094948530,"input":"5\n\"2\" \n\"1\" \n\"+\" \n\"3\" \n\"*\"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\Stack\\evaluatepolish.cpp","group":"local","local":true}

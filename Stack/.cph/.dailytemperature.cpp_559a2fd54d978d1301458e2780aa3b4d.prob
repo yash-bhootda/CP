@@ -1,0 +1,1 @@
+{"name":"Local: dailytemperature","url":"d:\\CP\\Stack\\dailytemperature.cpp","tests":[{"id":1663139740425,"input":"4\n30\n40\n50\n60","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\Stack\\dailytemperature.cpp","group":"local","local":true}
