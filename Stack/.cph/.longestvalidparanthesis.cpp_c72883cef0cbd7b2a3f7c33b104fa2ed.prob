@@ -1,0 +1,1 @@
+{"name":"Local: longestvalidparanthesis","url":"d:\\CP\\Stack\\longestvalidparanthesis.cpp","tests":[{"id":1663302944962,"input":"\"(()\"","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\Stack\\longestvalidparanthesis.cpp","group":"local","local":true}

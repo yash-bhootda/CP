@@ -17,14 +17,30 @@
 using namespace std;
 int longestValidParentheses(string s)
 {
-    si  x;
-    
+    si  st;
+    int count=0;
+    st.push(-1);
+    int n=s.size();
+    fo(0,n)
+    {
+        if(s[i]=='(')
+        {
+            st.push(i);
+        }
+        if(s[i]==')')
+        {
+            st.pop();
+            count=max(count , i - st.top());
+        }
+    }
+    return count;
 
 }
 int main()
 {
     string s;
     cin>>s;
-    longestValidParentheses(s);
+    int c  =longestValidParentheses(s);
+    cout<<c;
     return 0;
 }
