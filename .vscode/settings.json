@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "*.html": "html",
+        "*.java": "java",
+        "xiosbase": "cpp",
+        "vector": "cpp",
+        "utility": "cpp"
+    }
+}
