@@ -24,7 +24,7 @@ int maxProduct(vector<int> &nums)
     {
         int curr = nums[i];
         maxh = max(curr , curr*maxh);
-        min h = min(curr , curr*minh);
+        min h = min(curr , curr*minh)
     }
 }
 int main()
