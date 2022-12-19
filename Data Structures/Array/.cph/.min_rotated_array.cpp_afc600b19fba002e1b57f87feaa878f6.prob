@@ -1,0 +1,1 @@
+{"name":"Local: min_rotated_array","url":"d:\\CP\\Data Structures\\Array\\min_rotated_array.cpp","tests":[{"id":1671369744618,"input":"5\n1 2 3 4 5","output":"1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\Data Structures\\Array\\min_rotated_array.cpp","group":"local","local":true}
