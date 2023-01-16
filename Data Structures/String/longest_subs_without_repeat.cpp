@@ -13,22 +13,13 @@
 #include <bits/stdc++.h>
 #include <vector>
 #include <string>
-#include <map>
 #include <algorithm>
 using namespace std;
+int lengthOfLongestSubstring(string s)
+{
+}
 int main()
 {
-    map<string, int> m;
-    m["one"] = 1;
-    m["two"] = 2;
-    m["three"] = 3;
-
-    map<string, int> :: iterator it = m.begin();
-    while (it != m.end())
-    {
-        cout << it->first << " " << it->second << endl;
-        ++it;
-    }
 
     return 0;
 }
