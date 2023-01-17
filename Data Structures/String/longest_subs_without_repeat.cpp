@@ -26,7 +26,7 @@ int lengthOfLongestSubstring(string s)
         if (m.find(s[i]) != m.end())
         {
             start = max(start, m[s[i]] + 1);
-            cout << start << endl;
+            // cout << start << endl;
         }
         m[s[i]] = i;
         gmax = max(i - start + 1, gmax);

@@ -1,0 +1,1 @@
+{"name":"Local: group_anagrams","url":"d:\\CP\\Data Structures\\String\\group_anagrams.cpp","tests":[{"id":1673939485815,"input":"6\neat\ntea\ntan\nate\nnat\nbat","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\Data Structures\\String\\group_anagrams.cpp","group":"local","local":true}
