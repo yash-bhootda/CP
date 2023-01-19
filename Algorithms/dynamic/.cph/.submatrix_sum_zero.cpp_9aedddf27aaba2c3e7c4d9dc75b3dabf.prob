@@ -1,0 +1,1 @@
+{"name":"Local: submatrix_sum_zero","url":"d:\\CP\\Algorithms\\dynamic\\submatrix_sum_zero.cpp","tests":[{"id":1674051426550,"input":"1\n3 4\n1 2 3 4\n1 -4 -4 1\n6 1 -1 -2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\Algorithms\\dynamic\\submatrix_sum_zero.cpp","group":"local","local":true}
