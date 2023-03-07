@@ -28,33 +28,46 @@ void push(Node **head, int val)
     new1->next = *head;
     *head = new1;
 }
-Node *ReverseLL(Node **curr, int k)
-{
-    int count = 0;
-    Node *yrb = *curr;
-    Node *temp = NULL;
-    Node *prev = NULL;
-    while (yrb != NULL || count != k)
-    {
-        temp = yrb->next;
-        yrb->next = prev;
-        prev = yrb;
-        yrb = temp;
-        count++;
-    }
-    *curr = prev;
-    return *curr;
-}
 void print(Node *node)
 {
     // cout<<node->data;
-    cout<<node->data;
+    cout << node->data;
     while (node->next != NULL)
     {
         cout << node->data << "->";
         node = node->next;
     }
     cout << node->data;
+}
+Node *reverseKGroup(Node *head, int k)
+{
+    Node *curr = head;
+    Node *temp1 = head;
+    // Node *curr1 = head;
+    Node *temp = NULL;
+    Node *prev = NULL;
+    int count = 0;
+
+    int t = 0;
+    while (temp1)
+    {
+        t++;
+        temp1 = temp1->next;
+    }
+
+    while (curr != NULL && t >= k)
+    {
+        while (count != k)
+        {
+            temp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = temp;
+            count++;
+            t--;
+        }
+        count = 0;
+    }
 }
 int main()
 {
@@ -63,33 +76,9 @@ int main()
     push(&head, 9);
     push(&head, 0);
     push(&head, 10);
-    // push(&head, 8, 19);
-    // DeletionPos(&head, 1);
-    Node *curr = head;
-    Node *temp = head;
-    Node *prev = NULL;
-    int k;
-    cin >> k;
-    int l = 0;
-    while (temp)
-    {
-        l++;
-        
-        temp = temp->next;
-    }
-    int count = 0;
-    cout<<l;
-    while (l)
-    {
-        count++;
-        if (count == k)
-        {
-            curr->next = ReverseLL(&curr, k);
-            count = 0;
-        }
-        curr=curr->next;
-        l--;
-    }
-    print(head);
+    // cout<<head->data;
+    Node* tp = reversell(head , 2);
+    print(tp);
+
     return 0;
 }

@@ -31,6 +31,7 @@ void push(Node **head, int val)
 void print(Node *node)
 {
     // cout<<node->data;
+    // cout<<"hll";
     cout << node->data;
     while (node->next != NULL)
     {
@@ -43,7 +44,7 @@ void print(Node *node)
 Node *reversell(Node *head, int k)
 {
     Node *curr = head;
-    Node *curr1 = head;
+    // Node *curr1 = head;
     Node *temp = NULL;
     Node *prev = NULL;
     int count = 0;
@@ -52,6 +53,7 @@ Node *reversell(Node *head, int k)
     {
         temp = curr->next;
         curr->next = prev;
+        prev=curr;
         curr = temp;
         count++;
     }
@@ -69,9 +71,8 @@ int main()
     push(&head, 9);
     push(&head, 0);
     push(&head, 10);
-    int k;
-    cin >> k;
-    Node* tp = reversell(head , k);
+    // cout<<head->data;
+    Node* tp = reversell(head , 2);
     print(tp);
 
     return 0;
