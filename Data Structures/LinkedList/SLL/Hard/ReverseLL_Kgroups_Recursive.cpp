@@ -41,28 +41,49 @@ void print(Node *node)
     cout << node->data;
 }
 
-Node *reversell(Node *head, int k)
+ListNode *reverse(ListNode *head, int k, int &l)
 {
-    Node *curr = head;
+    ListNode *curr = head;
     // Node *curr1 = head;
-    Node *temp = NULL;
-    Node *prev = NULL;
+    ListNode *temp = NULL;
+    ListNode *prev = NULL;
     int count = 0;
 
     while (curr != NULL && count < k)
     {
         temp = curr->next;
         curr->next = prev;
-        prev=curr;
+        prev = curr;
         curr = temp;
         count++;
+        l--;
     }
-    if (temp != NULL)
+    if (temp != NULL && l >= k)
     {
-        head->next = reversell(temp, k);
+        head->next = reverseKGroup(temp, k);
     }
-
+    if (l < k)
+    {
+        while (temp)
+        {
+            cout << temp->val << endl;
+            head->next = temp;
+            head = head->next;
+            temp = temp->next;
+        }
+    }
     return prev;
+}
+ListNode *reverseKGroup(ListNode *head, int k)
+{
+    ListNode *temp1 = head;
+    int tp = 0;
+    while (temp1)
+    {
+        tp++;
+        temp1 = temp1->next;
+    }
+    return reverse(head, k, tp);
 }
 int main()
 {
@@ -72,7 +93,7 @@ int main()
     push(&head, 0);
     push(&head, 10);
     // cout<<head->data;
-    Node* tp = reversell(head , 2);
+    Node *tp = reversell(head, 2);
     print(tp);
 
     return 0;

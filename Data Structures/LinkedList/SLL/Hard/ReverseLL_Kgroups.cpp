@@ -31,7 +31,7 @@ void push(Node **head, int val)
 void print(Node *node)
 {
     // cout<<node->data;
-    cout << node->data;
+    // cout << node->data;
     while (node->next != NULL)
     {
         cout << node->data << "->";
@@ -39,12 +39,25 @@ void print(Node *node)
     }
     cout << node->data;
 }
+void reverse(Node* curr)
+{
+    Node* temp = NULL;
+    Node* prev = NULL;
+    while(curr!=NULL)
+    {
+        cout<<curr->data<<endl;
+        temp=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=temp;
+    }
+}
 Node *reverseKGroup(Node *head, int k)
 {
-    Node *curr = head;
+    Node *curr = head;//start
     Node *temp1 = head;
     // Node *curr1 = head;
-    Node *temp = NULL;
+    Node *temp = head;//end
     Node *prev = NULL;
     int count = 0;
 
@@ -55,19 +68,38 @@ Node *reverseKGroup(Node *head, int k)
         temp1 = temp1->next;
     }
 
-    while (curr != NULL && t >= k)
+    while (temp != NULL)
     {
-        while (count != k)
+        count++;
+        if(count==k )
         {
-            temp = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = temp;
-            count++;
-            t--;
+            Node * next1 = temp->next;
+            temp->next=NULL;
+            reverse(curr);
+            if(prev==NULL)
+            {
+                head=temp;
+            }
+            else
+            {
+                prev->next=temp;
+            }
+            curr->next=next1;
+            prev=curr;
+            temp=next1;
+            curr=next1;
+            count=0;
+
+
         }
-        count = 0;
+        else
+        {
+            temp=temp->next;
+        }
+        
     }
+    return head;
+
 }
 int main()
 {
@@ -76,8 +108,9 @@ int main()
     push(&head, 9);
     push(&head, 0);
     push(&head, 10);
+    push(&head, 79);
     // cout<<head->data;
-    Node* tp = reversell(head , 2);
+    Node* tp = reverseKGroup(head , 3);
     print(tp);
 
     return 0;
