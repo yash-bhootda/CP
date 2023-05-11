@@ -16,61 +16,85 @@
 #include <algorithm>
 using namespace std;
 
-int yrb(vector<int>&nums, int l, int h, int target)
+// int yrb(vector<int>&nums, int l, int h, int target)
+// {
+//     if (l > h)
+//     {
+//         return -1;
+//     }
+//     int mid = (l + h) / 2;
+//     if (nums[mid] == target)
+//     {
+//         return mid;
+//     }
+//     if (nums[l] <= nums[mid])
+//     {
+//         if (target >= nums[l] && target <= nums[mid])
+//         {
+//             return yrb(nums, l, mid - 1, target);
+//         }
+//         else
+//         {
+//             return yrb(nums , mid+1 ,h , target );
+//         }
+//     }
+//     else
+//     {
+//         if (target >= nums[mid+1] && target <= nums[h])
+//         {
+//             return yrb(nums, mid+1, h , target);
+//         }
+//         else
+//         {
+//             return yrb(nums, l, mid - 1, target);
+//         }
+
+//     }
+// }
+// int search(vector<int> &nums, int target)
+// {
+//     int t = yrb(nums, 0, nums.size()-1, target);
+//     return t;
+// }
+int bsearch(vector<int> &nums, int l, int h, int target)
 {
     if (l > h)
     {
         return -1;
     }
-    int mid = (l + h) / 2;
-    if (nums[mid] == target)
+    int m = (l + h) / 2;
+    if (target == nums[m])
     {
-        return mid;
+        return m;
     }
-    if (nums[l] <= nums[mid])
+    if (target < nums[l] && nums[m] > nums[l])
     {
-        if (target >= nums[l] && target <= nums[mid])
-        {
-            return yrb(nums, l, mid - 1, target);
-        }
-        else
-        {
-            return yrb(nums , mid+1 ,h , target );
-        }
+        return bsearch(nums, mid + 1, h, target);
     }
     else
     {
-        if (target >= nums[mid+1] && target <= nums[h])
-        {
-            return yrb(nums, mid+1, h , target);
-        }
-        else
-        {
-            return yrb(nums, l, mid - 1, target);
-        }
-        
+        return bsearch(nums, l, mid - 1, target);
     }
 }
 int search(vector<int> &nums, int target)
 {
-    int t = yrb(nums, 0, nums.size()-1, target);
-    return t;
+    return bsearch(nums, 0, nums.size() - 1, target);
 }
 int main()
 {
-    int n ;
-    cin>>n;
+    int n;
+    cin >> n;
     vi arr;
-    while(n>0)
+    while (n > 0)
     {
-        int t ;
-        cin>>t;
+        int t;
+        cin >> t;
         arr.pb(t);
         n--;
     }
     int target;
-    cin>>target;
-    int k =search(arr , target);
-    cout<<k;
+    cin >> target;
+    int k = search(arr, target);
+    cout << k;
     return 0;
 }
