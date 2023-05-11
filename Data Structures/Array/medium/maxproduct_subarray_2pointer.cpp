@@ -20,18 +20,24 @@ using namespace std;
 
 int maxProduct(vector<int> &nums)
 {
-    int max1 = nums[0];
-    for (int i = 0; i < nums.size(); i++)
+    int l =1;
+    int r=1;
+    for(int i =0;i<nums.size();i++)
     {
-        int prod = nums[i];
-        for (int j = i + 1; j <= nums.size() - 1; j++)
+        if(l==0)
         {
-            max1 = max(max1, nums[j]);
-            prod = prod * nums[j];
-            max1 = max(max1, prod);
+            l=0;
         }
+        if(r==0)
+        {
+            r=0;
+        }
+        l=l*nums[i];
+        r=r*nums[n-i-1];
+        ans=max(ans , max(l,r));
+
     }
-    return max1;
+    return ans;
 }
 
 int main()

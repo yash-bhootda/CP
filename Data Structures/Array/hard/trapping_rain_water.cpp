@@ -29,8 +29,6 @@ int trap1(vector<int> &a)
     {
 
         left.push_back(max(left[i - 1], a[i]));
-        max2 = max(max2, a[n-i]);
-        right.pb(max2);
     }
     for (int i = n - 1; i >= 0; i--)
     {
@@ -68,6 +66,6 @@ int main()
     }
     // cout<<v[2];
     int k =trap1(v);
-
+x   
     return 0;
 }
