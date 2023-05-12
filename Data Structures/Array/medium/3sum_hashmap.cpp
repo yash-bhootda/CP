@@ -15,44 +15,40 @@
 #include <string>
 #include <algorithm>
 using namespace std;
-int trap1(vector<int> &a)
+
+// WILL GIVE TLE
+
+void threeSum(vector<int> &nums)
 {
-    int n = a.size();
-    vi left;
-    vi right;
-    left.pb(a[0]);
-    right.pb(a[0]);
-    int max1 = -1;
-    int max2 = -1;
-    int p = 0;
-    for (int i = 1; i < n; i++)
+    sort(nums.begin() , nums.end());
+    int l =0;
+    vector<vector<int>> ans;
+    unordered_map <int , int> mp;
+    for(int i =0;i<nums.size();i++)
     {
+        mp[nums[i]]++;
+    }
+    for(int i =0;i<nums.size();i++)
+    {
+        mp[nums[i]]--;
+        for(int j=i+1;j<nums.size();j++)
+        {
+            mp[nums[j]]--;
+            int c = -(nums[i]+nums[j]);
+            if(mp.find(c)!=mp.end() && mp[c]>0)
+            {
+                cout<<nums[i]<<" "<<nums[j]<<" "<<c<<endl;
+            }
+            mp[nums[j]]++;
 
-        left.push_back(max(left[i - 1], a[i]));
-    }
-    for (int i = n - 1; i >= 0; i--)
-    {
+        }
+        mp[nums[i]]++;
 
-        max2 = max(max2, a[i]);
-        right.pb(max2);
     }
-    reverse(right.begin(), right.end());
-    // fo(0,n)
-    // {
-    //     cout<<right[i];
-    // }
-    int sum = 0;
-    for (int i = 1; i < n; i++)
-    {
-        
-        sum = sum + (min(left[i], right[i]) - a[i]);
- 
-    }
-    return sum;
+    
 }
 int main()
 {
-
     int n;
     cin >> n; // taking size of vector from user
     int a;
@@ -64,8 +60,7 @@ int main()
         cin >> a;
         v.push_back(a);
     }
-    // cout<<v[2];
-    int k =trap1(v);
+    threeSum(v);
 
     return 0;
 }
