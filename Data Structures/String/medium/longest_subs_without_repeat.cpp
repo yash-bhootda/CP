@@ -17,21 +17,39 @@
 using namespace std;
 int lengthOfLongestSubstring(string s)
 {
-    map<char, int> m;
-    int curr_max = 0;
-    int gmax = 0;
-    int start = 0;
-    fo(0, s.length())
+    if (s.size() == 0)
     {
-        if (m.find(s[i]) != m.end())
-        {
-            start = max(start, m[s[i]] + 1);
-            // cout << start << endl;
-        }
-        m[s[i]] = i;
-        gmax = max(i - start + 1, gmax);
+        return 0;
     }
-    return gmax;
+    if (s.size() == 1)
+    {
+        return 1;
+    }
+    map<char, int> mp;
+    int max1 = INT_MIN;
+    int count = 0;
+    int i = 0;
+    while (i < s.size())
+    {
+        if (mp.find(s[i]) != mp.end())
+        {
+
+            i = mp[s[i]] + 1;
+            max1 = max(max1, count);
+            count = 0;
+            mp.clear();
+        }
+        else
+        {
+            mp[s[i]] = i;
+            count++;
+            i++;
+        }
+    }
+
+    int k = mp.size();
+    max1 = max(max1, k);
+    return max1;
 }
 int main()
 {
