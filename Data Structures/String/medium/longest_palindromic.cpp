@@ -1,78 +1,74 @@
-#define pb push_back
-#define vi vector<int>
-#define si stack<int>
-#define vl vector<long long int>
-#define pi pair<int, int>
-#define pl pair<ll, ll>
-#define ll long long int
-#define fo(a, b) for (auto i = a; i < b; ++i)
-#define nfo(a, b) for (auto i = a; i < b; i--)
-#define jfo(a, b) for (auto j = a; j < b; j++)
-#define njfo(a, b) for (auto j = a; j < b; j--)
-#include <iostream>
-#include <bits/stdc++.h>
-#include <vector>
-#include <string>
-#include <algorithm>
-using namespace std;
-bool palindromecheck(string s)
-{
-    int n = s.length();
-    // cout << s << endl;
-    for (int i = 0; i < n; i++)
+class Solution {
+public:
+    int checkpal(int l , int r , string s )
     {
-        if (s[i] != s[n - i - 1])
+        while(l>=0 && r<s.size() && s[l]==s[r])
         {
-            return false;
+            l--;
+            r++;
         }
+        return r-l-1;
     }
-    return true;
-}
-string longestPalindrome(string s)
-{
-    string ans;
-    int n = s.length();
-
-    fo(0, n)
-    {
-        jfo(i, n)
+    string longestPalindrome(string s) {
+        /*int n = s.size();
+        if(n==1)
         {
-            if (s[i] == s[j])
+            return s;
+        }
+        int start;
+        int maxcount=1;
+        vector<vector<bool>> v ( n , vector<bool> (n,false));
+        for(int i =0;i<n;i++)
+        {
+            v[i][i]=true;
+        }
+        for(int i =0;i<n-1;i++)
+        {
+            if(s[i]==s[i+1])
             {
-                string a;
-                // cout<<i<<endl;
-                // cout<<j<<endl;
-                a = s.substr(i, j - i + 1);
-                // cout<<a<<endl;
-                if (a.size() > ans.size())
+                v[i][i+1]=true;
+                start=i;
+                maxcount=2;
+                
+            }
+        }
+        for(int k =3;k<=n;k++)
+        {
+            for(int i =0;i<n-k+1;i++)
+            {
+                int j = i+k-1;
+                if(s[i]==s[j] && v[i+1][j-1]==true)
                 {
-                    string str1 = a;
-                    string str2 = ans;
-                    // cout<<str1<<endl;
-                    if (strstr(str1.c_str(), str2.c_str()))
+                    v[i][j]=true;
+                    if(k>maxcount)
                     {
-                        // cout<<ans<<endl;
-                        ans = a;
+                        start=i;
+                        maxcount=k;
                     }
-                    else
-                    {
-                        // cout<<ans<<endl;
-                        if (palindromecheck(a))
-                        {
-                            ans = a;
-                        }
-                    }
+                    
                 }
             }
         }
+        cout<< start<<" " << maxcount<<endl;
+        string t = s.substr(start , maxcount);
+        return t;*/ 
+        int maxl=1;
+        int start=0;
+        int n =s.size();
+        for(int i =0;i<n-1;i++)
+        {
+            int n = checkpal(i,i,s);
+            int m = checkpal(i,i+1,s);
+            int ans = max(n,m);
+            if(ans>maxl)
+            {
+                maxl=ans;
+                start=i-(maxl-1)/2;
+            }
+        }
+        string t = s.substr(start , maxl);
+        return t;
+
+        
     }
-    return ans;
-}
-int main()
-{
-    string s, a;
-    cin >> s;
-    a = longestPalindrome(s);
-    cout<<a;
-    return 0;
-}
+};
