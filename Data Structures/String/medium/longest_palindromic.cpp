@@ -51,7 +51,7 @@ public:
         }
         cout<< start<<" " << maxcount<<endl;
         string t = s.substr(start , maxcount);
-        return t;*/ 
+        return t;*/  
         int maxl=1;
         int start=0;
         int n =s.size();
