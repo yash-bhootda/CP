@@ -1,0 +1,1 @@
+{"name":"Local: asteroids","url":"d:\\CP\\Data Structures\\Stack\\asteroids.cpp","tests":[{"id":1684472460927,"input":"1\n6\n1 -7 -3 -12 1 -8\n","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\Data Structures\\Stack\\asteroids.cpp","group":"local","local":true}
