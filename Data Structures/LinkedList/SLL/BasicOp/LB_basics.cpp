@@ -25,7 +25,26 @@ void InsertTail(Node* &tail , int val)
     temp->next=NULL;
     tail=temp;
 }
-void InsertN(Node*& head , int n , int val)
+void DeleteN(Node *&head , int n)
+{
+    Node * temp = head;
+    if(n==1)
+    {
+        head=temp->next;
+        free(temp);
+        return;
+    }
+    while(n-2)
+    {
+        temp=temp->next;
+        n--;
+    }
+    Node * del = temp->next;
+    temp->next=temp->next->next;
+    free(del);
+
+}
+void InsertN(Node*& head , Node*& tail , int n , int val)
 {
     if(n==1)
     {
@@ -37,6 +56,11 @@ void InsertN(Node*& head , int n , int val)
     {
         temp=temp->next;
         n--;
+    }
+    if(temp->next==NULL)
+    {
+        InsertTail(head , val);
+        return;
     }
     Node * t = new Node(val);
     t->next=temp->next;
@@ -61,7 +85,11 @@ int main()
     InsertTail(tail , 0);
     InsertTail(tail , -10);
     InsertTail(tail , -20);
-    InsertN(head, 2 , 100);
+    // InsertN(head,tail, 2 , 100);
+    print(head);
+    cout<<endl;
+    cout<<endl;
+    DeleteN(head,7);
     // cout<<head->next->data<<endl;
     // cout<<temp->data;
     print(head);
