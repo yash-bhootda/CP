@@ -1,39 +1,36 @@
-class Solution
+#define pb push_back
+#define vi vector<int>
+#define si stack<int>
+#define vl vector<long long int>
+#define pi pair<int, int>
+#define pl pair<ll,ll>
+#define ll long long int
+#define fo(a,b) for(auto i=a;i<b;++i)
+#define nfo(a,b) for(auto i=a;i<b;i--)
+#define jfo(a,b) for(auto j=a;i<b;j++)
+#define njfo(a,b) for(auto j=a;j<b;j--)
+#include<iostream>
+#include <bits/stdc++.h>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+int main()
 {
-public:
-    string minWindow(string s, string t)
+    vector<pair<int , int> > vp;
+    vp.pb({1 , 2});    
+    vp.pb({4 , 5}); 
+    int count =1;   
+    for(auto i : vp)
     {
-        if (s.size() < t.size())
+        count++;
+        if(i.first==1)
         {
-            return "";
+            cout<<"heal"<<endl;
+            cout<<count<<endl;
+            vp.erase(vp.begin()+1);
         }
-        unordered_map<char, int> map;
-        for (int i = 0; i < t.size(); i++)
-        {
-            map[t[i]]++;
-        }
-        int count = 0, start = 0, min_length = INT_MAX, min_start = 0;
-        for (int end = 0; end < s.size(); end++)
-        {
-            if (map[s[end]] > 0)
-            {
-                count++;
-            }
-            map[s[end]]--;
-            if (count == t.length())
-            {
-                while (start < end && map[s[start]] < 0)
-                {
-                    map[s[start]]++, start++;
-                }
-                if (min_length > end - start)
-                {
-                    min_length = end - (min_start = start) + 1;
-                }
-                map[s[start++]]++;
-                count--;
-            }
-        }
-        return min_length == INT_MAX ? "" : s.substr(min_start, min_length);
+        cout<<i.first<<" "<<i.second<<endl;
     }
-};
+    return 0;
+}
