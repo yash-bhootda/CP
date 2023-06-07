@@ -1,0 +1,1 @@
+{"name":"Local: sumtree","url":"d:\\CP\\Data Structures\\BinaryTree\\medium\\sumtree.cpp","tests":[{"id":1686158614880,"input":"62 16 15 N 8 4 7 N 8 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\CP\\Data Structures\\BinaryTree\\medium\\sumtree.cpp","group":"local","local":true}
