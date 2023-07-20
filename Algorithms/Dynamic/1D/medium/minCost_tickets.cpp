@@ -22,3 +22,24 @@ public:
         return dp[final_day];
     }
 };
+
+class Solution {
+public:
+    int mincostTickets(vector<int>& days, vector<int>& costs) {
+        int n = days.size();
+        int finalday=days[n-1];
+        vector<int> dp(finalday+1 , -1);
+        dp[0]=0;
+        for(int i =1;i<=finalday;i++)
+        {
+            if(find(days.begin() , days.end() , i)== days.end())
+            {
+                dp[i]=dp[i-1];
+                continue;
+            }
+            dp[i] =  min(dp[max(0,i-1)]+costs[0] , min(dp[max(0,i-7)] + costs[1], dp[max(0,i-30)] + costs[2] ));
+        }
+
+        return dp[finalday];
+    }
+};
